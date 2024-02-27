@@ -1,9 +1,9 @@
 import React from 'react'
 
-function contents() {
+function contents(props) {
   return (
     <div>
-      
+      <div>{props.children}</div>
     </div>
   )
 }
