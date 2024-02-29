@@ -5,7 +5,6 @@ function Header() {
 
   return (
     <div>
-      
       <ul>
         {navList.map((element) => {
           return <li>{element}</li>;
