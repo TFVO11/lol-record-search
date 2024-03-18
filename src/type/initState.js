@@ -1,7 +1,6 @@
 export const user_search = {
-  id: "",
-  nickname: "",
-  
+  userName: "",
+  userTag: "",
 }
 
 export const user_info = {

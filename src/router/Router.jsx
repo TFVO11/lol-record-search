@@ -31,4 +31,4 @@ export const ROUTES = {
   },
 };
 
-export const ROUTER_ARR = Object.value(ROUTES);
+export const ROUTER_ARR = Object.values(ROUTES);

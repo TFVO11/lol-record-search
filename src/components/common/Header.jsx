@@ -32,7 +32,7 @@ function Header() {
   return (
     <form onSubmit={submitHandler}>
       <Input
-        name={search}
+        name="search"
         onChange={changeHandler}
         input={{
           type: "text",
