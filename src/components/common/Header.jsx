@@ -1,5 +1,7 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
+import { router_type } from "../../router/routerType";
 
 import Input from "../ui/Input";
 import randomNum from "../../util/randomNum";
@@ -12,37 +14,49 @@ const searchObj = {
 };
 
 function Header() {
-  const [user, setUser] = useState(searchObj);
+  const userRef = useRef(null);
 
-  const navList = ["PROFILE", "RECORD", "CHART", "SUMMARY"];
+  const navList = [
+    {
+      name: "PROFILE",
+      path: router_type.main.path,
+    },
+    {
+      name: "RECORD",
+      path: router_type.record.path,
+    },
+    {
+      name: "chart",
+      path: router_type.chart.path,
+    },
+    {
+      name: "SUMMARY",
+      path: router_type.summary.path,
+    },
+  ];
 
   const submitHandler = (e) => {
     e.preventDefault();
-  };
-
-  const changeHandler = (e) => {
-    setUser((preState) => {
-      return {
-        ...preState,
-        nickname: e.target.value,
-      };
-    });
+    const userInfo = userRef.current.value;
   };
 
   return (
     <form onSubmit={submitHandler}>
       <Input
+        ref={userRef}
         name="search"
-        onChange={changeHandler}
         input={{
           type: "text",
-          placehold: "사용자 닉네임을 입력해주세요!",
-          value: user,
+          placeholder: "Name #tag",
         }}
       ></Input>
       <ul>
         {navList.map((element) => {
-          return <li>{element}</li>;
+          return (
+            <li>
+              <Link to={element.path}>{element.name}</Link>
+            </li>
+          );
         })}
       </ul>
     </form>

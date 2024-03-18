@@ -1,11 +1,7 @@
-import React from 'react'
+import React from "react";
 
 function SummaryPage() {
-  return (
-    <div>
-      
-    </div>
-  )
+  return <div>요약</div>;
 }
 
-export default SummaryPage
+export default SummaryPage;
