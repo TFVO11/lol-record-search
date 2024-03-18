@@ -1,36 +1,28 @@
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import { router_type } from "../../router/routerType";
+import { router_type } from "../../type/routerType";
 
 import Input from "../ui/Input";
-import randomNum from "../../util/randomNum";
-
-import { user_info } from "../../type/initState";
-
-const searchObj = {
-  id: user_info.id,
-  nickname: user_info.nickname,
-};
 
 function Header() {
   const userRef = useRef(null);
 
   const navList = [
     {
-      name: "PROFILE",
+      name: router_type.main.name,
       path: router_type.main.path,
     },
     {
-      name: "RECORD",
+      name: router_type.record.name,
       path: router_type.record.path,
     },
     {
-      name: "chart",
+      name: router_type.chart.name,
       path: router_type.chart.path,
     },
     {
-      name: "SUMMARY",
+      name: router_type.summary.name,
       path: router_type.summary.path,
     },
   ];

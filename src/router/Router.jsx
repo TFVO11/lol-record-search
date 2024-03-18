@@ -3,7 +3,7 @@ import ChartPage from "../pages/chart/ChartPage";
 import RecordPage from "../pages/record/RecordPage";
 import SummaryPage from "../pages/summary/SummaryPage";
 
-import { router_type } from "./routerType";
+import { router_type } from "../type/routerType";
 
 export const ROUTES = {
   MAIN: {
