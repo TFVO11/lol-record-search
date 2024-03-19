@@ -3,7 +3,8 @@ export const blue_type = {
   search : "#F0F4F9",
   submit : "#DEEBF8",
   navButton : "#E0E8F0",
-  button_custom : "#E0E8F0"
+  button_custom : "#E0E8F0",
+  txt_ : "#fffff",
 }
 
 export const pink_type = {

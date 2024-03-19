@@ -1,7 +1,14 @@
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
 import { router_type } from "../../type/routerType";
+
+import {
+  StyledHeader,
+  StyledHeaderUl,
+  StyledHeaderLi,
+  StyledHeaderLink,
+  StyledHeaderInput,
+} from "./styled/header.style";
 
 import Input from "../ui/Input";
 
@@ -33,25 +40,27 @@ function Header() {
   };
 
   return (
-    <form onSubmit={submitHandler}>
-      <Input
+    <StyledHeader onSubmit={submitHandler}>
+      <StyledHeaderInput
         ref={userRef}
         name="search"
         input={{
           type: "text",
           placeholder: "Name #tag",
         }}
-      ></Input>
-      <ul>
+      ></StyledHeaderInput>
+      <StyledHeaderUl>
         {navList.map((element) => {
           return (
-            <li>
-              <Link to={element.path}>{element.name}</Link>
-            </li>
+            <StyledHeaderLi>
+              <StyledHeaderLink to={element.path}>
+                {element.name}
+              </StyledHeaderLink>
+            </StyledHeaderLi>
           );
         })}
-      </ul>
-    </form>
+      </StyledHeaderUl>
+    </StyledHeader>
   );
 }
 
