@@ -15,6 +15,7 @@ export const StyledHeader = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 `;
 
 export const StyledHeaderUl = styled.ul`
@@ -35,10 +36,4 @@ export const StyledHeaderLink = styled(Link)`
   border-radius: 12px;
 
   color: ${blue_type.txt_};
-`;
-
-export const StyledHeaderInput = styled(Input)`
-  & > input {
-    background-color: black;
-  }
 `;

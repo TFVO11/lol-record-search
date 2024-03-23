@@ -41,14 +41,14 @@ function Header() {
 
   return (
     <StyledHeader onSubmit={submitHandler}>
-      <StyledHeaderInput
-        ref={userRef}
-        name="search"
-        input={{
-          type: "text",
-          placeholder: "Name #tag",
-        }}
-      ></StyledHeaderInput>
+        <Input
+          ref={userRef}
+          name="search"
+          input={{
+            type: "text",
+            placeholder: "Name #tag",
+          }}
+        ></Input>
       <StyledHeaderUl>
         {navList.map((element) => {
           return (
