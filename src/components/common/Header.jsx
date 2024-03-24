@@ -41,6 +41,12 @@ function Header() {
 
   return (
     <StyledHeader onSubmit={submitHandler}>
+      <div>
+        headerBar
+      </div>
+      <div>
+        img feild
+      </div>
         <Input
           ref={userRef}
           name="search"
@@ -48,7 +54,8 @@ function Header() {
             type: "text",
             placeholder: "Name #tag",
           }}
-        ></Input>
+        >
+        </Input>
       <StyledHeaderUl>
         {navList.map((element) => {
           return (

@@ -26,6 +26,7 @@ function Input(props) {
         {...props.input}
         name={props.name}
       />
+      <button onClick={props.onClink}>검색</button>
     </StyledInput>
   );
 }
