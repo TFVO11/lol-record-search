@@ -1,10 +1,11 @@
 import React from 'react'
 import Contents from '../../components/ui/Contents'
+import MainPageContents from './MainPageContents'
 
 function MainPage() {
   return (
     <Contents>
-      메인
+      <MainPageContents />
     </Contents>
   )
 }
