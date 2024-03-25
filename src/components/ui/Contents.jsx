@@ -1,11 +1,19 @@
-import React from 'react'
+import React from "react";
+import styled from "styled-components";
 
-function contents(props) {
+function Contents(props) {
   return (
-    <div>
+    <Styleddiv>
       <div>{props.children}</div>
-    </div>
-  )
+    </Styleddiv>
+  );
 }
 
-export default contents
+
+const Styleddiv = styled.div`
+  height: 80vh;
+  width: 100%;
+`;
+
+
+export default Contents;

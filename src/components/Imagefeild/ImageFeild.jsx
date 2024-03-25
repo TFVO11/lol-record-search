@@ -1,10 +1,11 @@
 import React from 'react'
+import { ImgFeildDiv } from './imagefeild.styled'
 
 function ImageFeild() {
   return (
-    <div>
-      
-    </div>
+    <ImgFeildDiv>
+      img feild
+    </ImgFeildDiv>
   )
 }
 

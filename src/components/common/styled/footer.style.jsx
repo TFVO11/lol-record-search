@@ -9,4 +9,8 @@ import {
 export const StyledFooter = styled.div`
   background-color: ${blue_type.main};
   color: ${blue_type.txt_};
+
+  text-align: left;
+
+  padding-left: 12px;
 `;

@@ -10,9 +10,14 @@ const StyledInput = styled.div`
   justify-content: center;
 
   & > .input-tag {
-    background-color: ${blue_type.main};
+    background-color: ${blue_type.search};
     width: 100%;
     height: 100%;
+
+    border: 1px solid;
+    border-radius: 11px;
+    padding-left: 1%;
+    font-size: 15px;
   }
 `;
 
@@ -26,7 +31,6 @@ function Input(props) {
         {...props.input}
         name={props.name}
       />
-      <button onClick={props.onClink}>검색</button>
     </StyledInput>
   );
 }

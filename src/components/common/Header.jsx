@@ -8,9 +8,13 @@ import {
   StyledHeaderLi,
   StyledHeaderLink,
   StyledHeaderInput,
+  StyledInputBox,
 } from "./styled/header.style";
 
 import Input from "../ui/Input";
+import Button from "../ui/Button";
+import ImageFeild from "../Imagefeild/ImageFeild";
+import HeaderBar from "./HeaderBar";
 
 function Header() {
   const userRef = useRef(null);
@@ -41,12 +45,9 @@ function Header() {
 
   return (
     <StyledHeader onSubmit={submitHandler}>
-      <div>
-        headerBar
-      </div>
-      <div>
-        img feild
-      </div>
+      <HeaderBar />
+      <ImageFeild />
+      <StyledInputBox>
         <Input
           ref={userRef}
           name="search"
@@ -54,8 +55,9 @@ function Header() {
             type: "text",
             placeholder: "Name #tag",
           }}
-        >
-        </Input>
+        ></Input>
+        <Button>검색</Button>
+      </StyledInputBox>
       <StyledHeaderUl>
         {navList.map((element) => {
           return (

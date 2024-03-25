@@ -37,3 +37,11 @@ export const StyledHeaderLink = styled(Link)`
 
   color: ${blue_type.txt_};
 `;
+
+export const StyledInputBox = styled.div`
+  display: flex;
+  flex-direction: row;
+
+  width: 100%;
+  justify-content: center;
+`;
