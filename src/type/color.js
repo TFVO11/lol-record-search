@@ -6,6 +6,7 @@ export const blue_type = {
   button_custom: "#E0E8F0",
   txt_: "#fffff",
   hoverButton: "#B9D9F9",
+  link: "#FBFBFB"
 };
 
 export const pink_type = {

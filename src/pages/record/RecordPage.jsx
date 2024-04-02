@@ -1,10 +1,11 @@
 import React from 'react'
 import Contents from '../../components/ui/Contents'
+import RecordPageContents from './RecordPageContents'
 
 function RecordPage() {
   return (
     <Contents>
-      기록
+      <RecordPageContents />
     </Contents>
   )
 }

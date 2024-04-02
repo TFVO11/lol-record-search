@@ -15,12 +15,16 @@ const Styleddiv = styled.div`
 
   display: flex;
   flex-direction: column;
+  
+
 `;
 
 const StyledWrapper = styled.div`
   display: flex;
 
   justify-content: center;
+  align-items: center;
+
 `;
 
 export default Contents;

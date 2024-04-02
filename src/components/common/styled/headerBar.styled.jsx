@@ -7,10 +7,12 @@ export const StyledWrapper = styled.div`
   display: flex;
   flex-direction: row;
 
-  justify-content: center;
+  justify-content: left;
+
+
 `;
 
 export const StyledImg = styled.img`
-  width: 20%;
+  width: 230px;
   height: 100%;
 `;

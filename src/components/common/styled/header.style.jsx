@@ -27,13 +27,24 @@ export const StyledHeaderUl = styled.ul`
 
 export const StyledHeaderLi = styled.li`
   margin: 2%;
+
+  display: flex;
+  flex-direction: row;
+
+  justify-content: center;
 `;
 
 export const StyledHeaderLink = styled(Link)`
   text-decoration-line: none;
-  background-color: ${blue_type.main};
+  background-color: ${blue_type.link};
   padding: 16px 96px 16px 96px;
   border-radius: 12px;
+  box-shadow: 1px 1px 1px 1px gray;
+
+  &:hover {
+    transition: 0.5s;
+    box-shadow: none;
+  }
 
   color: ${blue_type.txt_};
 `;
