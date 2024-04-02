@@ -1,9 +1,10 @@
+import { RIOT_GET } from "./typeOfAPI";
+
 const riotAPI = process.env.REACT_APP_API;
-const summoner = "/lol/summoner/v4/summoners/by-name";
-const matchs = "/lol/match/v5/matches/by-puuid";
-const masteries =
-  "/lol/champion-mastery/v4/champion-masteries/by-summoner";
-const league = "/lol/league/v4/entries/by-summoner";
+const summoner = RIOT_GET.summoner;
+const matchs = RIOT_GET.matchs;
+const masteries = RIOT_GET.masteries;
+const league = RIOT_GET.league;
 
 export const getSearchUser = async (summonerName) => {
   const Name = summonerName;
@@ -12,7 +13,7 @@ export const getSearchUser = async (summonerName) => {
     const res = await axios.get(`${riotAPI}${summoner}/${Name}`);
     console.log("getSearchUser", res);
   } catch {
-    console.error("소환사 정보 실패", error);
+    console.error("소환사 정보를 불러오지 못했습니다.", error);
   }
 };
 
