@@ -22,8 +22,8 @@ export const getAccountInfo = async (gameNameTag) => {
   }
 } 
 
-export const getSearchUser = async (summonerName) => {
-  const Name = summonerName;
+export const getSearchUser = async (PUUID) => {
+  const Name = PUUID;
 
   try {
     const res = await axios.get(`${riotAPI}${summoner}/${Name}`, headers=headers);

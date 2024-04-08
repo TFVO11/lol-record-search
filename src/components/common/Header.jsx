@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { router_type } from "../../type/routerType";
+import { getUserNickName } from "../../reducers/actions/userSearchAction";
 
 import {
   StyledHeader,
@@ -17,7 +18,9 @@ import ImageFeild from "../Imagefeild/ImageFeild";
 import HeaderBar from "./HeaderBar";
 
 function Header() {
-  const userRef = useRef(null);
+  const userRef = useRef();
+  const [search, setSearch] = useState("");
+  const dispatch = useDispatch();
 
   const navList = [
     {
@@ -38,9 +41,23 @@ function Header() {
     },
   ];
 
+  const handleChange = (e) => {
+    const userInfo = e.target.value;
+    setSearch(userInfo);
+    console.log("search", search);
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
-    const userInfo = userRef.current.value;
+
+    if (userRef.current) {
+      const nickName = userRef.current.value;
+
+      dispatch(getUserNickName(nickName));
+      console.log("dispatch");
+    } else {
+      console.error("Null");
+    }
   };
 
   return (
@@ -49,11 +66,13 @@ function Header() {
       <ImageFeild />
       <StyledInputBox>
         <Input
+          onChange={handleChange}
           ref={userRef}
           name="search"
           input={{
             type: "text",
             placeholder: "Name #tag",
+            value: search,
           }}
         ></Input>
         <Button>검색</Button>

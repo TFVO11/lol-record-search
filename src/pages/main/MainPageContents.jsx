@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import {
   StyledRowWrapper,
   StyledColumnWrapper,
@@ -11,8 +12,10 @@ import {
   StyledOl,
 } from "./styled/mainpage.style";
 
-function MainPageContents() {
 
+function MainPageContents() {
+  const useNickName = useSelector(state => state)
+  console.log(useNickName);
 
   return (
     <StyledContentsBox>

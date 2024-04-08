@@ -21,18 +21,18 @@ const StyledInput = styled.div`
   }
 `;
 
-function Input(props) {
+const Input = React.forwardRef((props, ref) => {
   return (
     <StyledInput>
       <input
         className="input-tag"
-        ref={props.ref}
+        ref={ref}
         onChange={props.onChange}
         {...props.input}
         name={props.name}
       />
     </StyledInput>
   );
-}
+})
 
 export default Input;
