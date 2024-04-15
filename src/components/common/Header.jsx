@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { router_type } from "../../type/routerType";
 import { getUserNickName } from "../../reducers/actions/userSearchAction";
+import { PUUIDgetter, UserInfoGetter } from "../../api/getter/PUUIDgetter";
 
 import {
   StyledHeader,
@@ -19,7 +20,6 @@ import HeaderBar from "./HeaderBar";
 
 function Header() {
   const userRef = useRef();
-  const [search, setSearch] = useState("");
   const dispatch = useDispatch();
 
   const navList = [
@@ -41,11 +41,6 @@ function Header() {
     },
   ];
 
-  const handleChange = (e) => {
-    const userInfo = e.target.value;
-    setSearch(userInfo);
-    console.log("search", search);
-  };
 
   const submitHandler = (e) => {
     e.preventDefault();
@@ -55,6 +50,14 @@ function Header() {
 
       dispatch(getUserNickName(nickName));
       console.log("dispatch");
+
+      const PUUIDinfo = new PUUIDgetter(nickName);
+
+      console.log("new", PUUIDinfo)
+
+      PUUIDinfo.getAccount()
+        .then((res) => console.log("classTest", res))
+        .catch((error) => console.error("classTest", error));
     } else {
       console.error("Null");
     }
@@ -66,13 +69,11 @@ function Header() {
       <ImageFeild />
       <StyledInputBox>
         <Input
-          onChange={handleChange}
           ref={userRef}
           name="search"
           input={{
             type: "text",
             placeholder: "Name #tag",
-            value: search,
           }}
         ></Input>
         <Button>검색</Button>
