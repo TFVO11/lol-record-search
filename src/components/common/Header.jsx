@@ -3,6 +3,8 @@ import { useDispatch } from "react-redux";
 import { router_type } from "../../type/routerType";
 import { getUserNickName } from "../../reducers/actions/userSearchAction";
 import { PUUIDgetter, UserInfoGetter } from "../../api/getter/PUUIDgetter";
+import { getAccountInfo } from "../../api/axios/searchUsers";
+import dataFormat from "../../util/dataFormat";
 
 import {
   StyledHeader,
@@ -51,13 +53,17 @@ function Header() {
       dispatch(getUserNickName(nickName));
       console.log("dispatch");
 
-      const PUUIDinfo = new PUUIDgetter(nickName);
+      // const PUUIDinfo = new PUUIDgetter(nickName);
 
-      console.log("new", PUUIDinfo)
+      // console.log("new", PUUIDinfo)
 
-      PUUIDinfo.getAccount()
-        .then((res) => console.log("classTest", res))
-        .catch((error) => console.error("classTest", error));
+      // PUUIDinfo.getAccount()
+      //   .then((response) => console.log("classTest", response))
+      //   .catch((error) => console.error("classTest", error));
+
+      let accountInfo = getAccountInfo(dataFormat(nickName));
+      console.log("test-getting-account", accountInfo);
+
     } else {
       console.error("Null");
     }

@@ -1,30 +1,34 @@
-import axios from "axios"
+import axios from "axios";
 import { RIOT_GET } from "./typeOfAPI";
 
-const riotAPI = "https://developer.riotgames.com/apis";
+let riotAPI = "https://asia.api.riotgames.com";
 const riotKey = process.env.REACT_APP_RIOT_KEY;
 const summoner = RIOT_GET.summoner;
 const matchs = RIOT_GET.matchs;
 const masteries = RIOT_GET.masteries;
 const league = RIOT_GET.league;
-const account = RIOT_GET.account;
+let account = RIOT_GET.account;
 
-const headers = {
-  "X-Riot-Token": riotKey
-}
+const config = {
+  headers: {
+    "X-Riot-Token": riotKey,
+    "Access-Control-Allow-Origin": "https://asia.api.riotgames.com"
+  }
+};
 
-export const getAccountInfo = async (gameNameTag) => {
+export let getAccountInfo = async (gameNameTag) => {
   console.log("gamenametag", gameNameTag)
-  const {Name, Tag} = gameNameTag;
+  let {Name, Tag} = gameNameTag;
+  console.log(typeof(Name))
+  console.log(typeof(Tag))
 
-  console.log("Name", Name)
-  console.log("Tag", Tag)
-  console.log("api", riotAPI)
+  //https://asia.api.riotgames.com/riot/account/v1/accounts/by-riot-id/%EC%84%B1%EA%B3%B5%EC%84%B1%EB%83%A5/KR7
   try {
-    const res = await axios.get(`${riotAPI}${account}/${Name}/${Tag}`)
+    let res = await axios.get(`${riotAPI}${account}/${Name}/${Tag}`, config)
     console.log("getAccount", res);
-  } catch {
-    console.error("계정 정보를 가져오지 못했습니다.")
+    return res
+  } catch (err) {
+    console.error(err)
   }
 } 
 
@@ -32,7 +36,7 @@ export const getSearchUser = async (PUUID) => {
   const Name = PUUID;
 
   try {
-    const res = await axios.get(`${riotAPI}${summoner}/${Name}`, headers=headers);
+    let res = await axios.get(`${riotAPI}${summoner}/${Name}`, config);
     console.log("getSearchUser", res);
   } catch {
     console.error("소환사 정보를 불러오지 못했습니다.");
@@ -57,7 +61,7 @@ export const getMastery = async (encryptedSummonerId) => {
   } catch {
     console.error("숙련도를 불러오지 못했습니다.");
   }
-};
+};  
 
 export const getLeague = async (encryptedSummonerId) => {
   try {
